@@ -5,7 +5,7 @@
 
 
 
-.container {
+.todo-item {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -15,3 +15,4 @@
   margin: 0 auto 0 auto;
   padding-top: 2%;
 }
+
