@@ -1,7 +1,7 @@
 import React from 'react';
-import toDoItems from './components/todoBase';
+import toDoItems from './components/TodoBase';
 import ToDoList from './components/List';
-import CreateItem from './components/createItem'
+import CreateItem from './components/CreateItem'
 import './App.css'
 
 
