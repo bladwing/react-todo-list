@@ -17,6 +17,7 @@ class App extends React.Component {
   createItem(item) {
     this.state.toDoItems.unshift({
       name: item,
+      id: 0,
       completed: false
     });
     this.setState({
