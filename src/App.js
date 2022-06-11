@@ -1,53 +1,72 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import toDoItems from './components/todoBase';
+import ToDoList from './components/List';
+import CreateItem from './components/createItem'
 import './App.css'
-import Todo from "./components/todo";
-import todoData from './components/todoData';
-import CreateTask from './components/todoInput';
 
 
-
-
-class App extends Component {
-  constructor() {
-    super();
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    
     this.state = {
-      todoItems: todoData
-    }
+      toDoItems
+    };
+  }
+
+  createItem(item) {
+    this.state.toDoItems.unshift({
+      name: item,
+      completed: false
+    });
+    this.setState({
+      toDoItems: this.state.toDoItems
+    });
   }
   
-  handleChange = id => {
-    const index = this.state.todoItems.map(item => item.id).indexOf(id);
-    this.setState(state => {
-      let {todoItems} = state;
-      todoItems[index].completed = true;
-      return todoItems;
-    })
+  findItem(item) {
+    return this.state.toDoItems.filter((element) => element.name === item)[0];
+  }
+  
+  toggleComplete(item) {
+    let selectedItem = this.findItem(item);
+    selectedItem.completed = !selectedItem.completed;
+    this.setState({ toDoItems: this.state.toDoItems });
+  }
+  
+  saveItem(oldItem, newItem) {
+    let selectedItem = this.findItem(oldItem);
+    selectedItem.name = newItem;
+    this.setState({ toDoItems: this.state.toDoItems });
+  }
+  
+  deleteItem(item) {
+    let index = this.state.toDoItems.map(element => element.name).indexOf(item);
+    this.state.toDoItems.splice(index, 1);
+    this.setState({ toDoItems: this.state.toDoItems });
   }
 
   render() {
-    const {todoItems} = this.state;
-    const activeTasks = todoItems.filter(task => task.completed === false);
-    const completedTasks = todoItems.filter(task => task.completed === true);
-    const finalTasks = [...activeTasks,...completedTasks].map(item => {
-      return (
-        <Todo
-          key={item.id}
-          description={item.description}
-          completed={item.completed}
-          handleChange= { () => {this.handleChange(item.id)} }
-        />
-      )
-    })
-      return (
-        <div> 
-          <CreateTask/>
-          {finalTasks}
-          
+    return (
+      <div className='container'>
+        <div>
+          <h1 className='header'>დავალებების სია</h1>
+
+
         </div>
-      );
-    }
+        <CreateItem toDoItems={this.state.toDoItems} 
+                    createItem={this.createItem.bind(this)} />
+
+
+        <ToDoList toDoItems={this.state.toDoItems} 
+                  deleteItem={this.deleteItem.bind(this)} 
+                  saveItem={this.saveItem.bind(this)} 
+                  toggleComplete={this.toggleComplete.bind(this)} />
+      </div>
+    );
+  }
 }
+
 
 
 

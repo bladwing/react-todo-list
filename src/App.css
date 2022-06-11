@@ -3,16 +3,109 @@
   src: url(./resource/fonts/bpg_glaho.ttf);
 }
 
+body {
+  height: 100vh;
+  background: radial-gradient(#eee, #aaa);
+}
 
 
-.todo-item {
-  display: flex;
-  justify-content: center;
+.container {
   text-align: center;
   font-family: bpg_glaho;
   background-color: bisque;
   width: 50%;
-  margin: 0 auto 0 auto;
+  margin: 10% auto 0 auto;
   padding-top: 2%;
+}
+.header {
+    margin-bottom: 5%;
+}
+
+
+form > input {
+  box-sizing: border-box;
+  width: 70%;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+form > button {
+  width: 10%;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 18px;
+  margin: 0;
+  border: none;
+  border-left: 1px solid #999;
+}
+
+
+
+
+
+.navButton {
+  padding: 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 0;
+
+  font-weight: lighter;
+}
+.create-new {
+  border-top: 1px solid #777;
+  width: 100%;
+}
+
+input {
+  box-sizing: border-box;
+  width: 75%;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+}
+.items-list {
+  background: #138796;
+  border-radius: 3px;
+}
+
+.to-do-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 10px 0;
+  margin: 1px 0 1px 0;
+  border-top: 1px solid darken(#138796, 20%);
+  align-items: center;
+  font-size: 18px;
+  color: black;
+  font-weight: lighter;
+  
+}
+.actions {
+  margin-right: 10px;
+  
+}
+
+button {
+  padding: 7px;
+  border-radius: 4px;
+  margin-left: 10px;
+  border: none;
+  background: #333;
+  color: white;
+  font-weight: lighter;
+}
+
+.name {
+  margin-left: 2%;
+}
+
+
+.editForm {
+      width: 400px;
 }
 
