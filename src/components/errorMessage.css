@@ -1,0 +1,7 @@
+.errorMessage {
+    font-size: 20px;
+    padding: 15px;
+    font-weight: 500;
+    color: red;
+    margin-bottom: 30px;
+}

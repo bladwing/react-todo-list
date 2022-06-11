@@ -10,7 +10,7 @@ class ToDoListItem extends Component {
     
     renderName() {
       const itemStyle = {
-        'text-decoration': this.props.completed ? 'line-through red' : 'none',
+        'textDecoration': this.props.completed ? 'line-through red' : 'none',
         cursor: 'pointer'
       };
       
