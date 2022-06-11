@@ -6,9 +6,12 @@ class CreateItem extends React.Component {
     super(props);
     this.state = {
       newItemInput: "",
+      id: "",
       error: "",
     };
+    
   }
+ 
     handleCreate(e) {
       e.preventDefault();
 
@@ -25,9 +28,11 @@ class CreateItem extends React.Component {
       this.setState({ error: "" })
       this.refs.newItemInput.value = '';
     }
+    
     render() {
       return (
         <div>
+          
           <span className="errorMessage">{this.state.error}</span>
           <form onSubmit={this.handleCreate.bind(this)}>
             <input type="text" placeholder="ახალი დავალება" ref="newItemInput" />
@@ -36,6 +41,7 @@ class CreateItem extends React.Component {
           </form>
           
         </div>
+        
       );
     }
   }

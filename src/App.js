@@ -20,6 +20,7 @@ class App extends React.Component {
       id: 0,
       completed: false
     });
+
     this.setState({
       toDoItems: this.state.toDoItems
     });
@@ -30,21 +31,30 @@ class App extends React.Component {
   }
   
   toggleComplete(item) {
-    let selectedItem = this.findItem(item);
+    const selectedItem = this.findItem(item);
     selectedItem.completed = !selectedItem.completed;
     this.setState({ toDoItems: this.state.toDoItems });
   }
   
   saveItem(oldItem, newItem) {
-    let selectedItem = this.findItem(oldItem);
+    const selectedItem = this.findItem(oldItem);
     selectedItem.name = newItem;
     this.setState({ toDoItems: this.state.toDoItems });
   }
   
   deleteItem(item) {
-    let index = this.state.toDoItems.map(element => element.name).indexOf(item);
+    const index = this.state.toDoItems.map(element => element.name).indexOf(item);
     this.state.toDoItems.splice(index, 1);
     this.setState({ toDoItems: this.state.toDoItems });
+  }
+  
+  handleDone = id => {
+    const index = this.state.toDoItems.map(item => item.id).indexOf(id);
+    this.setState(state => {
+      let {todoItems} = state;
+      todoItems[index].completed = true;
+      return todoItems;
+    })
   }
 
   render() {
@@ -62,7 +72,9 @@ class App extends React.Component {
         <ToDoList toDoItems={this.state.toDoItems} 
                   deleteItem={this.deleteItem.bind(this)} 
                   saveItem={this.saveItem.bind(this)} 
-                  toggleComplete={this.toggleComplete.bind(this)} />
+                  toggleComplete={this.toggleComplete.bind(this)} 
+                  handleDone={this.handleDone.bind(this)}
+                  />
       </div>
     );
   }
