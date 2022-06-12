@@ -4,9 +4,11 @@ class ToDoListItem extends Component {
     constructor(props) {
       super(props);
       this.state = {
+        id: [],
         editing: false
       };
     }
+    
     
     renderName() {
       const itemStyle = {
@@ -16,8 +18,9 @@ class ToDoListItem extends Component {
       
       if(this.state.editing) {
         return (
+          
             <form onSubmit={this.onSaveClick.bind(this)}>
-              <input className="editForm" type="text" ref="editInput" defaultValue={this.props.name} />
+              <input className="editForm" type="text" defaultValue={this.props.name} ref="editInput" />
             </form>
         );
       }
@@ -57,7 +60,7 @@ class ToDoListItem extends Component {
     
     onSaveClick(e) {
       e.preventDefault();
-      this.props.saveItem(this.props.name, this.refs.editInput.value);
+      this.props.saveItem(this.props.name, this.refs.editInput.value)
       this.setState({ editing: false });
     }
     

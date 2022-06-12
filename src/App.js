@@ -17,7 +17,7 @@ class App extends React.Component {
   createItem(item) {
     this.state.toDoItems.unshift({
       name: item,
-      id: 0,
+      id: '',
       completed: false
     });
 
@@ -47,34 +47,25 @@ class App extends React.Component {
     this.state.toDoItems.splice(index, 1);
     this.setState({ toDoItems: this.state.toDoItems });
   }
-  
-  handleDone = id => {
-    const index = this.state.toDoItems.map(item => item.id).indexOf(id);
-    this.setState(state => {
-      let {todoItems} = state;
-      todoItems[index].completed = true;
-      return todoItems;
-    })
-  }
-
+ 
   render() {
+   
     return (
       <div className='container'>
         <div>
           <h1 className='header'>დავალებების სია</h1>
 
-
         </div>
         <CreateItem toDoItems={this.state.toDoItems} 
                     createItem={this.createItem.bind(this)} />
 
-
-        <ToDoList toDoItems={this.state.toDoItems} 
+        <ToDoList 
+                  toDoItems={this.state.toDoItems}
                   deleteItem={this.deleteItem.bind(this)} 
                   saveItem={this.saveItem.bind(this)} 
                   toggleComplete={this.toggleComplete.bind(this)} 
-                  handleDone={this.handleDone.bind(this)}
                   />
+                  
       </div>
     );
   }

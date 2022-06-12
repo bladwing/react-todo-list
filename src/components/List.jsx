@@ -3,9 +3,12 @@ import ToDoListItem from './ListItem'
 
 
 class ToDoList extends React.Component {
+  
     renderItems() {
-      return this.props.toDoItems.map((item, index) => 
-      <ToDoListItem key={index} {...item} {...this.props} />
+      return this.props.toDoItems.map((item, index, id) => 
+    
+      <ToDoListItem key={index} {...id} {...item}  {...this.props} />
+    
       );
     }
     
