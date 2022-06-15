@@ -4,13 +4,11 @@ class ToDoListItem extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        id: [],
         editing: false
       };
     }
     
-    
-    renderName() {
+    renderName = () => {
       const itemStyle = {
         'textDecoration': this.props.completed ? 'line-through red' : 'none',
         cursor: 'pointer'
@@ -32,33 +30,33 @@ class ToDoListItem extends Component {
       );
     }
     
-    renderButtons() {
+    renderButtons = () => {
       if (this.state.editing) {
         return (
           <span className='navButton'>
-            <button onClick={this.onSaveClick.bind(this)}>შენახვა</button>
-            <button onClick={this.onCancelClick.bind(this)}>გაუქმება</button>
+            <button onClick={this.onSaveClick}>შენახვა</button>
+            <button onClick={this.onCancelClick}>გაუქმება</button>
           </span>
         );
       }
       
       return (
         <span className='navButton'>
-          <button onClick={this.onEditClick.bind(this)}>რედაქტირება</button>
-          <button onClick={this.props.deleteItem.bind(this, this.props.name)}>წაშლა</button>
+          <button onClick={this.onEditClick}>რედაქტირება</button>
+          <button onClick={this.props.deleteItem.bind(this.props.name)}>წაშლა</button>
         </span>
       );
     }
     
-    onEditClick() {
+    onEditClick = () => {
       this.setState({ editing: true });
     }
     
-    onCancelClick() {
+    onCancelClick = () => {
       this.setState({ editing: false });
     }
     
-    onSaveClick(e) {
+    onSaveClick = (e) => {
       e.preventDefault();
       this.props.saveItem(this.props.name, this.refs.editInput.value)
       this.setState({ editing: false });

@@ -1,4 +1,4 @@
-const toDoItems = [
+export const toDoItems = [
     {
       id: 0,
       name: 'შექმენი რეაქრ პროექტი',
@@ -39,9 +39,7 @@ const toDoItems = [
       name: "გამოაჩინე დავალებების სია",
       completed: true
     }
-   
-
   ];
 
 
-  export default toDoItems;
+
