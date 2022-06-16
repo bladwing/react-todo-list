@@ -1,6 +1,7 @@
 import React from "react";
 import "./errorMessage.css";
-import {toDoItems} from './toDoItems';
+import { toDoItems } from "./toDoItems";
+import ToDoListItem from "./ToDoListItem";
 
 class CreateItem extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class CreateItem extends React.Component {
       this.setState((someThing) => {
         const newItem = {
           id: someThing.toDoItems[someThing.toDoItems.length - 1].id + 1,
-          description: someThing.value,
+          name: someThing.value,
         };
         return {
           emptyError: "",
@@ -34,13 +35,49 @@ class CreateItem extends React.Component {
       });
     }
   };
+
+  renderButtons = () => {
+    if (this.state.editing) {
+      return (
+        <span className='navButton'>
+          <button onClick={this.onSaveClick}>შენახვა</button>
+          <button onClick={this.onCancelClick}>გაუქმება</button>
+        </span>
+      );
+    }
+    
+    return (
+      <span className='navButton'>
+        <button onClick={this.onEditClick}>რედაქტირება</button>
+        <button>წაშლა</button>
+      </span>
+    );
+  }
+
+
   handleError = () => {
     this.setState({ emptyError: "გთხოვთ შეიყვანეთ დავალების სახელი..." });
   };
+
+  deleteTask = (id) => {
+    const newToDos = this.state.todos.filter((todo) => todo.id !== id);
+    this.setState({ todos: newToDos });
+  };
+
+  deleteAllTask = () => {
+    this.setState({
+      todos: [],
+    });
+  };
+
+
+
+
   render() {
     return (
       <div>
-      <span className="errorMessage">{this.state.emptyError}</span>
+        <h1 className="header">დავალებების სია</h1>
+        <span className="errorMessage">{this.state.emptyError}</span>
 
         <form onSubmit={this.handleSubmit}>
           <input
@@ -50,9 +87,24 @@ class CreateItem extends React.Component {
           />
           <button>შექმნა</button>
         </form>
+
         <ul>
           {this.state.toDoItems.reverse().map((name, id) => {
-            return <div key={id}> {name.description}</div>;
+            return (
+              <li key={id} className="to-do-item">
+                
+               <div className="name"> {name.name}</div>
+                <span className="navButton">
+                  <button>რედაქტირება</button>
+                  
+                  <button
+            onClick={() => this.props.deleteTask(this.props.id)}
+          >
+            წაშლა
+          </button>
+                </span>
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -61,37 +113,3 @@ class CreateItem extends React.Component {
 }
 
 export default CreateItem;
-
-
-
-
-// handleCreate(e) {
-//   e.preventDefault();
-
-//   if (!this.refs.newItemInput.value) {
-//     return this.setState({ error: "გთხოვთ შეიყვანეთ დავალების სახელი..." });
-//   } else if (
-//     this.props.toDoItems
-//       .map((element) => element.name)
-//       .indexOf(this.refs.newItemInput.value) !== -1
-//   ) {
-//     this.setState({ error: "ესეთი დავალების სახელი უკვე არსებობს :(" });
-//     this.refs.newItemInput.value = this.newItemInput.value;
-//     return;
-//   }
-//   this.props.createItem(this.refs.newItemInput.value);
-//   this.setState({ error: "" });
-//   this.refs.newItemInput.value = "";
-// }
-
-
-
-
-
-
-{/* <span className="errorMessage">{this.state.error}</span>
-<form onSubmit={this.handleCreate.bind(this)}>
-  <input type="text" placeholder="ახალი დავალება" ref="newItemInput" />
-
-  <button>შექმნა</button>
-</form> */}
