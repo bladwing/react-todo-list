@@ -1,11 +1,11 @@
 import React from "react";
-import CreateItem from "./components/CreateItem";
+import ToDoTasks from "./components/ToDoTasks";
 import "./App.css";
 
 function App() {
   return (
     <div className="container">
-      <CreateItem />
+      <ToDoTasks />
     </div>
   );
 }

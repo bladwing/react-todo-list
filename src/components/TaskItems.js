@@ -1,4 +1,4 @@
-export const toDoItems = [
+export const TaskItems = [
     {
       id: 0,
       name: 'შექმენი რეაქრ პროექტი',
@@ -32,12 +32,12 @@ export const toDoItems = [
     {
       id: 6,
       name: "შექმენი ღილაკები.",
-      completed: true
+      completed: false
     },
     {
       id: 7,
       name: "გამოაჩინე დავალებების სია",
-      completed: true
+      completed: false
     }
   ];
 
