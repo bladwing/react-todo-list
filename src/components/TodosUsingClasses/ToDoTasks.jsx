@@ -3,7 +3,7 @@ import AddTask from "./AddTask";
 import Logo from "../../resource/logo.gif";
 import Task from "./Task";
 import RemoveTasks from "./RemoveTasks";
-import { TaskItems } from "./TaskItems";
+import { TaskItems } from "../base/TaskItems";
 
 class ToDoTasks extends React.Component {
   constructor(props) {
@@ -120,9 +120,10 @@ class ToDoTasks extends React.Component {
   render() {
     return (
       <div>
+        <span className="onTheHeader">{"this.state ==> Class კომპონენტები :)"}</span>
         <h1 className="header">
           <img src={Logo} />
-          დავალებების სია
+          დავალებების სია 
         </h1>
         <div className="errorMessage">{this.state.errorMessage}</div>
 

@@ -1,56 +1,40 @@
 import React from "react";
 
-class Task extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  
-  render() {
-    return (
-      <li key={this.props.id}>
-        <input
-          type="checkbox"
-          className="checkbox"
-          defaultChecked={this.props.completed}
-          onChange={this.props.taskCompleted}
-        />
+export default function Task(props) {
+  return (
+    <li key={props.id}>
+      <input
+        type="checkbox"
+        className="checkbox"
+        defaultChecked={props.completed}
+        onChange={props.taskCompleted}
+      />
+      {props.completed === true ? (
+        <span className="taskName strike">{props.name}</span>
+      ) : (
+        <div className="taskName">{props.name}</div>
+      )}
 
-        {this.props.done === true ? (
-          <div>{this.props.name}</div>
-        ) : (
-          <div className="taskName">
-            {this.props.name}
-          </div>
-        )}
-
-        <div className="taskSwitch">
-          <span
-            className="nav"
-            onClick={() => this.props.taskSwitch(this.props.id, "+")}
-          >
-            <button>+</button>
-          </span>
-          <span
-            className="nav"
-            onClick={() => this.props.taskSwitch(this.props.id, "-")}
-          >
-            <button>-</button>
-          </span>
-        </div>
-        <span className="buttonContainer">
-          <button onClick={() => this.props.removeTask(this.props.id)}>
-            წაშლა
-          </button>
-          <button
-            onClick={() => this.props.edit(this.props.name, this.props.id)}
-          >
-            რედაქტირება
-          </button>
+      <div className="taskSwitch">
+        <span
+          className="nav"
+          onClick={() => props.taskChangePosition(props.id, "+")}
+        >
+          <button>+</button>
         </span>
-      </li>
-    );
-  }
-}
-
-export default Task;
+        <span
+          className="nav"
+          onClick={() => props.taskChangePosition(props.id, "-")}
+        >
+          <button>-</button>
+        </span>
+      </div>
+      <span className="buttonContainer">
+        <button onClick={() => props.removeTask(props.id)}>წაშლა</button>
+        <button onClick={() => props.edit(props.name, props.id)}>
+          რედაქტირება
+        </button>
+      </span>
+    </li>
+  );
+};
