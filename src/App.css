@@ -2,6 +2,11 @@
   font-family: bpg_glaho;
   src: url(./resource/fonts/bpg_glaho.ttf);
 }
+
+.strike {
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
 body {
   height: 100vh;
   background: radial-gradient(#eee, #aaa);
@@ -14,12 +19,17 @@ body {
   width: 50%;
   margin: 10% auto 0 auto;
   padding: 50px;
-  
+  border-radius: 40px;
 }
 .header {
   margin-bottom: 5%;
 }
 
+img {
+  width: 50px;
+  margin-top: 0px;
+
+}
 .form > input {
   box-sizing: border-box;
   width: 70%;
@@ -29,12 +39,12 @@ body {
 }
 
 .form > button {
-  width: 10%;
+
   box-sizing: border-box;
   font-size: 18px;
   margin: 0;
-  border: none;
-  border-left: 1px solid #999;
+  border-radius: 4px;
+
 }
 
 .navButton {
@@ -61,39 +71,28 @@ input {
   font-size: 18px;
   border: none;
 }
-.items-list {
-  background: #138796;
-  border-radius: 3px;
-}
+
 
 .to-do-item {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   font-size: 18px;
-  color: black;
   font-weight: lighter;
 }
-.checkbox {
-  width: 10px;
-}
+
 .actions {
   margin-right: 10px;
 }
-button {
-  padding: 7px;
-  border-radius: 4px;
-  margin-left: 10px;
-  cursor: pointer;
-  border: none;
-  background: #333;
-  color: white;
-  font-weight: lighter;
-}
+
 
 .taskName {
   width: 50%;
   text-align: left;
+  font-size: 1.2em;
+}
+.taskName:hover {
+  color: rgb(49, 47, 47);
 }
 
 .editForm {
@@ -105,16 +104,96 @@ li {
   margin: 2%;
 }
 .taskSwitch {
-    width: 10%;
+  width: 10%;
 }
-.nav button {
+
+
+.checkbox {
   width: 20px;
-  text-align: center;
-
+  height: 20px;
+  border-radius: 50%;
+  transition: box-shadow 0.3s;
+  background: radial-gradient(#eee, #aaa);
+  cursor: pointer;
+  border: 0;
+  appearance: none;
+  -webkit-appearance: none;
 }
-.nav button:hover {
-  background-color: #ffe4c4;
-  color: black;
-  border: 1px solid black;
+
+input:checked {
+  box-shadow: inset 0 0 0 20px rgb(81, 81, 245);
 }
 
+button {
+  position: relative;
+  z-index: 0;
+  border-radius: 4px;
+  padding: 7px;
+  margin-left: 10px;
+  cursor: pointer;
+  background: #333;
+  color: white;
+  font-weight: lighter;
+}
+
+button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+button:active {
+  color: rgb(24, 22, 22);
+}
+
+button:active:after {
+  background: transparent;
+}
+
+button:hover:before {
+  opacity: 1;
+}
+
+button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

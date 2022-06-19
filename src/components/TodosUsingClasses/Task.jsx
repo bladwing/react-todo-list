@@ -5,7 +5,7 @@ class Task extends React.Component {
     super(props);
     this.state = {};
   }
-  
+
   render() {
     return (
       <li key={this.props.id}>
@@ -15,13 +15,10 @@ class Task extends React.Component {
           defaultChecked={this.props.completed}
           onChange={this.props.taskCompleted}
         />
-
-        {this.props.done === true ? (
-          <div>{this.props.name}</div>
+        {this.props.completed === true ? (
+          <span className="taskName strike">{this.props.name}</span>
         ) : (
-          <div className="taskName">
-            {this.props.name}
-          </div>
+          <div className="taskName">{this.props.name}</div>
         )}
 
         <div className="taskSwitch">

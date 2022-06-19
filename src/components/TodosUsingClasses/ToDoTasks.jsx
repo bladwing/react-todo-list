@@ -1,5 +1,6 @@
 import React from "react";
 import AddTask from "./AddTask";
+import Logo from "../../resource/logo.gif";
 import Task from "./Task";
 import RemoveTasks from "./RemoveTasks";
 import { TaskItems } from "./TaskItems";
@@ -52,23 +53,27 @@ class ToDoTasks extends React.Component {
     this.setState({ tasks: newTasks });
   };
 
-  deleteAllTask = () => {
+  clearAllTask = () => {
     this.setState({
       tasks: [],
     });
   };
 
   removeAllCompletedTask = () => {
+    const newTasks = this.state.tasks.filter((task) => task.completed == false);
     this.setState({
-      errorMessage: "ფუნქცია ჯერ არ არსებობს :(",
+      tasks: newTasks,
     });
   };
-  taskCompleted = (id) => {
-    console.log("hello", id);
-  };
 
-  edit = (text, id) => {
-    this.setState({ editName: text, editId: id });
+  taskCompleted = (id) => {
+    const newTodos = [...this.state.tasks];
+    newTodos.forEach((e) => {
+      if (e.id === id) {
+        e.completed = !e.completed;
+        this.setState({ tasks: [...newTodos] });
+      }
+    });
   };
 
   save = () => {
@@ -84,6 +89,9 @@ class ToDoTasks extends React.Component {
       editId: "",
       editName: "",
     });
+  };
+  edit = (text, id) => {
+    this.setState({ editName: text, editId: id });
   };
 
   taskSwitch = (id, direction) => {
@@ -112,7 +120,10 @@ class ToDoTasks extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="header">დავალებების სია</h1>
+        <h1 className="header">
+          <img src={Logo} />
+          დავალებების სია
+        </h1>
         <div className="errorMessage">{this.state.errorMessage}</div>
 
         <AddTask AddTask={this.AddTask} />
@@ -123,10 +134,9 @@ class ToDoTasks extends React.Component {
             {this.state.tasks.length !== 0 && (
               <RemoveTasks
                 removeAllCompletedTask={this.removeAllCompletedTask}
-                deleteAllTask={this.deleteAllTask}
+                deleteAllTask={this.clearAllTask}
               />
             )}
-
             {this.state.tasks.reverse().map((task) => (
               <div key={task.id}>
                 <Task

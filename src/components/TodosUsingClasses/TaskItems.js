@@ -2,12 +2,12 @@ export const TaskItems = [
     {
       id: 0,
       name: 'შექმენი რეაქრ პროექტი',
-      completed: false
+      completed: true
     },
     {
       id: 1,
       name: 'შექმენი დავალებების სია',
-      completetd: false
+      completed: true
     },
     {
       id: 2,
