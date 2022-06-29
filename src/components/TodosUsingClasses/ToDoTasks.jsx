@@ -60,7 +60,7 @@ class ToDoTasks extends React.Component {
   };
 
   removeAllCompletedTask = () => {
-    const newTasks = this.state.tasks.filter((task) => task.completed == false);
+    const newTasks = this.state.tasks.filter((task) => task.completed === false);
     this.setState({
       tasks: newTasks,
     });
@@ -122,7 +122,7 @@ class ToDoTasks extends React.Component {
       <div>
         <span className="onTheHeader">{"this.state ==> Class კომპონენტები :)"}</span>
         <h1 className="header">
-          <img src={Logo} />
+          <img src={Logo} alt="logo"/>
           დავალებების სია 
         </h1>
         <div className="errorMessage">{this.state.errorMessage}</div>
