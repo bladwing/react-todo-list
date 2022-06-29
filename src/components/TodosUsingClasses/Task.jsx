@@ -9,9 +9,7 @@ class Task extends React.Component {
   render() {
     return (
       <li key={this.props.id}>
-         
-         
-          <input
+        <input
           type="checkbox"
           className="checkbox"
           onClick={(e) =>

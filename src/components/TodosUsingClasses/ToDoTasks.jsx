@@ -13,7 +13,7 @@ class ToDoTasks extends React.Component {
       tasks: TaskItems,
     };
   }
- 
+
   AddTask = (name, emptyValue) => {
     if (name.length === 0) {
       this.setState({
@@ -39,10 +39,9 @@ class ToDoTasks extends React.Component {
     }
     let newToDo = { name };
     if (this.state.tasks.length === 0) {
-      newToDo.id = 1
+      newToDo.id = 1;
     } else {
       newToDo.id = this.state.tasks[this.state.tasks.length - 1].id + 1;
-      
     }
 
     this.setState({
@@ -51,7 +50,7 @@ class ToDoTasks extends React.Component {
     });
     emptyValue();
   };
-  
+
   removeTask = (id) => {
     const newTasks = this.state.tasks.filter((task) => task.id !== id);
     this.setState({ tasks: newTasks });
@@ -82,7 +81,6 @@ class ToDoTasks extends React.Component {
     });
   };
 
-
   isChecked = (value, text) => {
     let newTasks = [];
     this.state.tasks.forEach((task) => {
@@ -97,9 +95,7 @@ class ToDoTasks extends React.Component {
   };
 
   removeAllChekedTask = () => {
-    const newTasks = this.state.tasks.filter(
-      (task) => task.isChecked !== true
-    );
+    const newTasks = this.state.tasks.filter((task) => task.isChecked !== true);
     this.setState({
       tasks: newTasks,
     });
@@ -167,7 +163,6 @@ class ToDoTasks extends React.Component {
                 removeAllCompletedTask={this.removeAllCompletedTask}
                 deleteAllTask={this.clearAllTask}
                 removeAllChekedTask={this.removeAllChekedTask}
-
               />
             )}
             {this.state.tasks.reverse().map((task) => (
