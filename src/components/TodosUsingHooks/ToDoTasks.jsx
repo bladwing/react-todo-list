@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import AddTask from "./AddTask";
 import Logo from "../../resource/logo.gif";
 import Task from "./Task";
@@ -17,10 +16,14 @@ export default function ToDoTasks() {
       setErrorMessage("გთხოვთ შეიყვანეთ დავალების სახელი...");
       return;
     }
-
+    const EmptyValue = tasks.some(() => name.trim().length === 0);
+    if (EmptyValue) {
+      setErrorMessage("დავალების სახელში დაუშვებელი სიმბოლოა...");
+      return;
+    }
     const DublicateValue = tasks.some((task) => task.name === name);
     if (DublicateValue) {
-      setErrorMessage("მასეტი დავალების სახელი უკვე არსებობს...");
+      setErrorMessage("ასეთი დავალების სახელი უკვე არსებობს...");
       return;
     }
     let newToDo;
@@ -50,7 +53,7 @@ export default function ToDoTasks() {
   };
 
   const removeAllCompletedTask = () => {
-    const newTasks = tasks.filter((task) => task.completed == false);
+    const newTasks = tasks.filter((task) => task.completed === false);
     setTasks(newTasks);
   };
 
@@ -101,7 +104,7 @@ export default function ToDoTasks() {
     <div>
       <span className="onTheHeader">{"useState ==> Hook კომპონენტები :)"}</span>
       <h1 className="header">
-        <img src={Logo} />
+        <img src={Logo} alt="logoImg" />
         დავალებების სია
       </h1>
       <div className="errorMessage">{errorMessage}</div>
