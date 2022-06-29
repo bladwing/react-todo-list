@@ -24,7 +24,7 @@ class ToDoTasks extends React.Component {
     const DublicateValue = this.state.tasks.some((task) => task.name === name);
     if (DublicateValue) {
       this.setState({
-        errorMessage: "მასეტი დავალების სახელი უკვე არსებობს...",
+        errorMessage: "ასეთი დავალების სახელი უკვე არსებობს...",
       });
       return;
     }
