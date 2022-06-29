@@ -52,6 +52,11 @@ export default function ToDoTasks() {
     setTasks(newTasks);
   };
 
+  const removeCheckboxedTask = () => {
+    const newTasks = tasks.filter((task) => task.isChecked !== true);
+    setTasks(newTasks);
+  };
+
   const taskCompleted = (id) => {
     const newTodos = [...tasks];
     newTodos.forEach((e) => {
@@ -75,7 +80,16 @@ export default function ToDoTasks() {
     setEditName(name);
     setEditId(id);
   };
-
+  const isChecked = (value, text) => {
+    let newTasks = [];
+    tasks.forEach((task) => {
+      if (task.name === text) {
+        task.isChecked = value;
+      }
+      newTasks.push(task);
+    });
+    setTasks(newTasks);
+  };
   const taskChangePosition = (id, position) => {
     const newTasks = [...tasks];
     tasks.forEach((e, index) => {
@@ -113,6 +127,7 @@ export default function ToDoTasks() {
             <RemoveTasks
               removeAllCompletedTask={removeAllCompletedTask}
               deleteAllTask={clearAllTask}
+              removeCheckboxedTask={removeCheckboxedTask}
             />
           )}
           {tasks.reverse().map((task) => (
@@ -124,6 +139,7 @@ export default function ToDoTasks() {
                 taskCompleted={() => {
                   taskCompleted(task.id);
                 }}
+                isChecked={isChecked}
                 removeTask={removeTask}
                 taskChangePosition={taskChangePosition}
                 edit={edit}

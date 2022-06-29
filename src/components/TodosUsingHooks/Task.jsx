@@ -6,6 +6,11 @@ export default function Task(props) {
       <input
         type="checkbox"
         className="checkbox"
+        onClick={(e) => props.isChecked(e.target.checked, props.name)}
+      />
+      <input
+        type="checkbox"
+        className="checkbox"
         defaultChecked={props.completed}
         onChange={props.taskCompleted}
       />
@@ -37,4 +42,4 @@ export default function Task(props) {
       </span>
     </li>
   );
-};
+}

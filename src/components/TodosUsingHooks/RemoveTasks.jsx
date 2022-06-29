@@ -9,6 +9,9 @@ export default function RemoveTasks(props) {
       <button onClick={() => props.removeAllCompletedTask()}>
         ყველა დასრულებული დავალების წაშლა
       </button>
+      <button onClick={() => props.removeCheckboxedTask()}>
+        მონიშნული დავალებების წაშლა
+      </button>
     </div>
   );
 }
