@@ -15,12 +15,21 @@ class ToDoTasks extends React.Component {
   }
 
   AddTask = (name, emptyValue) => {
-    if (name.length === 0 && name === "") {
+    if (name.length === 0) {
       this.setState({
         errorMessage: "გთხოვთ შეიყვანეთ დავალების სახელი...",
       });
       return;
     }
+
+    const EmptyValue = this.state.tasks.some(() => name.trim().length === 0);
+    if (EmptyValue) {
+      this.setState({
+        errorMessage: "დავალების სახელში დაუშვებელი სიმბოლოა...",
+      });
+      return;
+    }
+
     const DublicateValue = this.state.tasks.some((task) => task.name === name);
     if (DublicateValue) {
       this.setState({
@@ -60,7 +69,9 @@ class ToDoTasks extends React.Component {
   };
 
   removeAllCompletedTask = () => {
-    const newTasks = this.state.tasks.filter((task) => task.completed === false);
+    const newTasks = this.state.tasks.filter(
+      (task) => task.completed === false
+    );
     this.setState({
       tasks: newTasks,
     });
@@ -120,10 +131,12 @@ class ToDoTasks extends React.Component {
   render() {
     return (
       <div>
-        <span className="onTheHeader">{"this.state ==> Class კომპონენტები :)"}</span>
+        <span className="onTheHeader">
+          {"this.state ==> Class კომპონენტები :)"}
+        </span>
         <h1 className="header">
-          <img src={Logo} alt="logo"/>
-          დავალებების სია 
+          <img src={Logo} alt="logo" />
+          დავალებების სია
         </h1>
         <div className="errorMessage">{this.state.errorMessage}</div>
 
