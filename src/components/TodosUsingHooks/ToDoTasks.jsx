@@ -3,7 +3,7 @@ import AddTask from "./AddTask";
 import Logo from "../../resource/logo.gif";
 import Task from "./Task";
 import RemoveTasks from "./RemoveTasks";
-import { TaskItems } from "../base/TaskItems";
+import { TaskItems } from "../../utils/taskItems";
 
 export default function ToDoTasks() {
   const [tasks, setTasks] = useState(TaskItems);
@@ -26,18 +26,13 @@ export default function ToDoTasks() {
       setErrorMessage("ასეთი დავალების სახელი უკვე არსებობს...");
       return;
     }
-    let newToDo;
+    let newToDo = { name };
     if (tasks.length === 0) {
-      newToDo = {
-        id: 1,
-        name: name,
-      };
+      newToDo.id = 1;
     } else {
-      newToDo = {
-        id: tasks[tasks.length - 1].id + 1,
-        name: name,
-      };
+      newToDo.id = tasks[tasks.length - 1].id + 1;
     }
+
     setTasks([...tasks, newToDo]);
     setErrorMessage("");
     emptyValue();

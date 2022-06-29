@@ -3,7 +3,7 @@ import AddTask from "./AddTask";
 import Logo from "../../resource/logo.gif";
 import Task from "./Task";
 import RemoveTasks from "./RemoveTasks";
-import { TaskItems } from "../base/TaskItems";
+import { TaskItems } from "../../utils/taskItems";
 
 class ToDoTasks extends React.Component {
   constructor(props) {
@@ -37,19 +37,13 @@ class ToDoTasks extends React.Component {
       });
       return;
     }
-
-    let newToDo;
+    let newToDo = { name };
     if (this.state.tasks.length === 0) {
-      newToDo = {
-        id: 1,
-        name: name,
-      };
+      newToDo.id = 1;
     } else {
-      newToDo = {
-        id: this.state.tasks[this.state.tasks.length - 1].id + 1,
-        name: name,
-      };
+      newToDo.id = this.state.tasks[this.state.tasks.length - 1].id + 1;
     }
+
     this.setState({
       tasks: [...this.state.tasks, newToDo],
       errorMessage: "",

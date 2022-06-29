@@ -1,5 +1,5 @@
 import React from "react";
-import "./components/style/errorMessage.css";
+import "./style/errorMessage.css";
 import Menu from "./components/Menu";
 import "./App.css";
 

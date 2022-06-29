@@ -1,5 +1,5 @@
 import React from "react";
-import "./style/menu.css";
+import "../style/menu.css";
 import Destiny from "../resource/destiny.jpg";
 
 import {
