@@ -16,6 +16,9 @@ class RemoveTasks extends React.Component {
         <button onClick={() => this.props.removeAllCompletedTask()}>
           ყველა დასრულებული დავალების წაშლა
         </button>
+        <button onClick={() => this.props.removeAllChekedTask()}>
+          ყველა მონიშნული დავალების წაშლა
+        </button>
       </div>
     );
   }

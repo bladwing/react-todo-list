@@ -9,6 +9,15 @@ class Task extends React.Component {
   render() {
     return (
       <li key={this.props.id}>
+         
+         
+          <input
+          type="checkbox"
+          className="checkbox"
+          onClick={(e) =>
+            this.props.isChecked(e.target.checked, this.props.name)
+          }
+        />
         <input
           type="checkbox"
           className="checkbox"

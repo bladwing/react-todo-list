@@ -13,7 +13,7 @@ class ToDoTasks extends React.Component {
       tasks: TaskItems,
     };
   }
-
+ 
   AddTask = (name, emptyValue) => {
     if (name.length === 0) {
       this.setState({
@@ -39,9 +39,10 @@ class ToDoTasks extends React.Component {
     }
     let newToDo = { name };
     if (this.state.tasks.length === 0) {
-      newToDo.id = 1;
+      newToDo.id = 1
     } else {
       newToDo.id = this.state.tasks[this.state.tasks.length - 1].id + 1;
+      
     }
 
     this.setState({
@@ -50,7 +51,7 @@ class ToDoTasks extends React.Component {
     });
     emptyValue();
   };
-
+  
   removeTask = (id) => {
     const newTasks = this.state.tasks.filter((task) => task.id !== id);
     this.setState({ tasks: newTasks });
@@ -81,6 +82,28 @@ class ToDoTasks extends React.Component {
     });
   };
 
+
+  isChecked = (value, text) => {
+    let newTasks = [];
+    this.state.tasks.forEach((task) => {
+      if (task.name === text) {
+        task.isChecked = value;
+      }
+      newTasks.push(task);
+    });
+    this.setState({
+      tasks: newTasks,
+    });
+  };
+
+  removeAllChekedTask = () => {
+    const newTasks = this.state.tasks.filter(
+      (task) => task.isChecked !== true
+    );
+    this.setState({
+      tasks: newTasks,
+    });
+  };
   save = () => {
     let newTasks = [];
     this.state.tasks.forEach((task) => {
@@ -143,6 +166,8 @@ class ToDoTasks extends React.Component {
               <RemoveTasks
                 removeAllCompletedTask={this.removeAllCompletedTask}
                 deleteAllTask={this.clearAllTask}
+                removeAllChekedTask={this.removeAllChekedTask}
+
               />
             )}
             {this.state.tasks.reverse().map((task) => (
@@ -157,6 +182,7 @@ class ToDoTasks extends React.Component {
                   removeTask={this.removeTask}
                   taskSwitch={this.taskSwitch}
                   edit={this.edit}
+                  isChecked={this.isChecked}
                 />
 
                 {this.state.editName !== "" && this.state.editId === task.id && (
