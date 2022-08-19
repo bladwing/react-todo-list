@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AddTask from "./AddTask";
 import Logo from "../../resource/logo.gif";
 import Task from "./Task";
@@ -205,6 +206,11 @@ class ToDoTasks extends React.Component {
             ))}
           </ul>
         )}
+             <div className="nav">
+          <button>
+            <Link to="/">მთავარი გვერდი</Link>
+          </button>
+        </div>
       </div>
     );
   }

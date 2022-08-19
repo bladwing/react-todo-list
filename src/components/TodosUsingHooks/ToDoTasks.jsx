@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import AddTask from "./AddTask";
 import Logo from "../../resource/logo.gif";
 import Task from "./Task";
@@ -164,6 +165,11 @@ export default function ToDoTasks() {
           ))}
         </ul>
       )}
+            <div className="nav">
+          <button>
+            <Link to="/">მთავარი გვერდი</Link>
+          </button>
+        </div>
     </div>
   );
 }

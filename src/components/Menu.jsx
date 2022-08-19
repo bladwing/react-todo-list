@@ -21,19 +21,8 @@ export default function Menu() {
           <Route path="/classes" element={<Classes />} />
           <Route path="/hooks" element={<Hooks />} />
         </Routes>
-        <div className="navSecond ">
-          <button>
-            <NavLink to="/classes">Class კომპონენტები</NavLink>
-          </button>
-          <button>
-            <NavLink to="/hooks">Hooks კომპონენტები</NavLink>
-          </button>
-        </div>
-        <div className="nav">
-          <button>
-            <NavLink to="/">მთავარი გვერდი</NavLink>
-          </button>
-        </div>
+       
+  
       </Router>
     </div>
   );
@@ -44,7 +33,16 @@ function Home() {
     <div className="homePage">
       <h1>Welcome to My To Do World....</h1>
       <img src={Destiny} alt="destiny" className="destiny" />
-      <h2>Choose your destiny</h2>
+      <h2>Choose your Component</h2>
+
+      <div className="navSecond ">
+          <button>
+            <NavLink to="/classes">Class</NavLink>
+          </button>
+          <button>
+            <NavLink to="/hooks">Hooks</NavLink>
+          </button>
+        </div>
     </div>
   );
 }
