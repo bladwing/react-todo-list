@@ -1,29 +1,30 @@
 .nav a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px;
 }
 
 .nav {
-    margin-top: 2%;
+  margin-top: 2%;
 }
 .navSecond a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px;
+}
+.navSecond button {
+  margin-top: 10px;
 }
 
 .onTheHeader {
-    font-size: 23px;
-  }
+  font-size: 23px;
+}
 
-  .destiny {
-    width: 60%;
-    border-radius: 20px;
-  }
-
-  
+.destiny {
+  width: 60%;
+  border-radius: 20px;
+}

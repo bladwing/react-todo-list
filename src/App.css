@@ -17,6 +17,7 @@ body {
   font-family: bpg_glaho;
   background-color: bisque;
   width: 50%;
+  min-width: 350px;
   margin: 10% auto 0 auto;
   padding: 50px;
   border-radius: 40px;
@@ -48,10 +49,11 @@ img {
   padding: 10px;
   font-size: 18px;
   cursor: default;
+  
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 2.2em;
   margin: 0;
 
   font-weight: lighter;
@@ -127,6 +129,7 @@ button {
   cursor: pointer;
   color: white;
   font-weight: lighter;
+  
 }
 
 button:before {
