@@ -6,6 +6,7 @@ import "../style/menu.css";
 
 import Classes from "./TodosUsingClasses/ToDoTasks";
 import Hooks from "./TodosUsingHooks/ToDoTasks";
+import NotFound from "../pages/NotFound"
 
 export default function Menu() {
   return (
@@ -14,6 +15,7 @@ export default function Menu() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/classes" element={<Classes />} />
+          <Route path="*" element={<NotFound />} />
           <Route path="/hooks" element={<Hooks />} />
         </Routes>
       </Router>

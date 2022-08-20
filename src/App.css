@@ -18,7 +18,7 @@ body {
   background-color: bisque;
   width: 50%;
   min-width: 350px;
-  margin: 10% auto 0 auto;
+  margin: 3% auto 0 auto;
   padding: 50px;
   border-radius: 40px;
 }
@@ -32,7 +32,7 @@ img {
 }
 .form > input {
   box-sizing: border-box;
-  width: 70%;
+  width: 55%;
   padding: 10px;
   font-size: 18px;
   border-radius: 10px;
@@ -40,8 +40,8 @@ img {
 
 .form > button {
   box-sizing: border-box;
-  font-size: 18px;
-  margin: 0;
+  font-size: 16px;
+  margin-left: 3%;
   border-radius: 4px;
 }
 

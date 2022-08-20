@@ -44,12 +44,12 @@ class Task extends React.Component {
         </div>
         <span className="buttonContainer">
           <button onClick={() => this.props.removeTask(this.props.id)}>
-            წაშლა
+            Remove
           </button>
           <button
             onClick={() => this.props.edit(this.props.name, this.props.id)}
           >
-            რედაქტირება
+            Edit
           </button>
         </span>
       </li>

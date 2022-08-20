@@ -146,17 +146,17 @@ class ToDoTasks extends React.Component {
     return (
       <div>
         <span className="onTheHeader">
-          {"this.state ==> Class კომპონენტები :)"}
+          {"this.state ==> Class Components :)"}
         </span>
         <h1 className="header">
           <img src={Logo} alt="logo" />
-          დავალებების სია
+          Tasks List
         </h1>
         <div className="errorMessage">{this.state.errorMessage}</div>
 
         <AddTask AddTask={this.AddTask} />
 
-        {this.state.tasks.length === 0 && <h2>დავალებების სია ცარიალია...</h2>}
+        {this.state.tasks.length === 0 && <h2>Tasks List is empty...</h2>}
         {this.state.tasks.length !== 0 && (
           <ul>
             {this.state.tasks.length !== 0 && (
@@ -166,7 +166,7 @@ class ToDoTasks extends React.Component {
                 removeAllChekedTask={this.removeAllChekedTask}
               />
             )}
-            {this.state.tasks.reverse().map((task) => (
+            {this.state.tasks.map((task) => (
               <div key={task.id}>
                 <Task
                   id={task.id}
@@ -191,13 +191,13 @@ class ToDoTasks extends React.Component {
                       value={this.state.editName}
                     />
                     <div>
-                      <button onClick={this.save}>შენახვა</button>
+                      <button onClick={this.save}>Save</button>
                       <button
                         onClick={() =>
                           this.setState({ editName: "", editId: "" })
                         }
                       >
-                        გაუქმება
+                        Cancel
                       </button>
                     </div>
                   </div>
@@ -208,7 +208,7 @@ class ToDoTasks extends React.Component {
         )}
              <div className="nav">
           <button>
-            <Link to="/">მთავარი გვერდი</Link>
+            <Link to="/">Main Page</Link>
           </button>
         </div>
       </div>

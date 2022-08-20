@@ -17,7 +17,7 @@ class AddTask extends React.Component {
         <div className="form">
         <input
           type="text"
-          placeholder="დავალების სახელი..."
+          placeholder="Task Name..."
           onChange={(e) => this.setState({ newTask: e.target.value })}
           value={this.state.newTask}
         />
@@ -26,7 +26,7 @@ class AddTask extends React.Component {
             this.props.AddTask(this.state.newTask, this.NewTask);
           }}
         >
-          დამატება
+          Add Task
         </button>
         </div>
     );

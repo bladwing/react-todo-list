@@ -167,7 +167,7 @@ export default function ToDoTasks() {
       )}
             <div className="nav">
           <button>
-            <Link to="/">მთავარი გვერდი</Link>
+            <Link to="/">Main Page</Link>
           </button>
         </div>
     </div>
