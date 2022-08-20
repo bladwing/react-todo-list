@@ -131,7 +131,7 @@ export default function ToDoTasks() {
               removeCheckboxedTask={removeCheckboxedTask}
             />
           )}
-          {tasks.reverse().map((task) => (
+          {tasks.map((task) => (
             <div key={task.id}>
               <Task
                 id={task.id}
