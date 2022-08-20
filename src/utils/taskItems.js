@@ -1,42 +1,42 @@
 export const TaskItems = [
     {
       id: 0,
-      name: 'შექმენი რეაქრ პროექტი',
+      name: 'Create React Project',
       completed: true
     },
     {
       id: 1,
-      name: 'შექმენი დავალებების სია',
+      name: 'Create Tasks List',
       completed: true
     },
     {
       id: 2,
-      name: 'დაფუშე GitHub-ზე',
+      name: 'push on GitHub ',
       completed: false
     },
     {
       id: 3,
-      name: "id - დამატება uuid - ით",
+      name: "id - add by uuid",
       completed: false
     },
     {
       id: 4,
-      name: "შექმენი კომპონენტები",
+      name: "Create Components",
       completed: false
     },
     {
       id: 5,
-      name: "შექმენი კომპონენტების სტილები App.css ში.",
+      name: "Create style in App.css",
       completed: false
     },
     {
       id: 6,
-      name: "შექმენი ღილაკები.",
+      name: "Create Buttons",
       completed: false
     },
     {
       id: 7,
-      name: "გამოაჩინე დავალებების სია",
+      name: "Display Tasks list",
       completed: false
     }
   ];

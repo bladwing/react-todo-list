@@ -14,7 +14,7 @@ export default function ToDoTasks() {
 
   const addNewTask = (name, emptyValue) => {
     if (name.length === 0 && name === "") {
-      setErrorMessage("გთხოვთ შეიყვანეთ დავალების სახელი...");
+      setErrorMessage("Please input Task name...");
       return;
     }
     const EmptyValue = tasks.some(() => name.trim().length === 0);
@@ -112,16 +112,16 @@ export default function ToDoTasks() {
 
   return (
     <div>
-      <span className="onTheHeader">{"useState ==> Hook კომპონენტები :)"}</span>
+      <span className="onTheHeader">{"useState ==> Hook Components :)"}</span>
       <h1 className="header">
         <img src={Logo} alt="logoImg" />
-        დავალებების სია
+        Tasks List
       </h1>
       <div className="errorMessage">{errorMessage}</div>
 
       <AddTask AddTask={addNewTask} />
 
-      {tasks.length === 0 && <h2>დავალებების სია ცარიალია...</h2>}
+      {tasks.length === 0 && <h2>Tasks List is empty...</h2>}
       {tasks.length !== 0 && (
         <ul>
           {tasks.length !== 0 && (
@@ -154,9 +154,9 @@ export default function ToDoTasks() {
                     value={editName}
                   />
                   <div>
-                    <button onClick={save}>შენახვა</button>
+                    <button onClick={save}>Save</button>
                     <button onClick={() => setEditName("", "")}>
-                      გაუქმება
+                    Cancel
                     </button>
                   </div>
                 </div>

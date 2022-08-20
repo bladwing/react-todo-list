@@ -18,7 +18,7 @@ class ToDoTasks extends React.Component {
   AddTask = (name, emptyValue) => {
     if (name.length === 0) {
       this.setState({
-        errorMessage: "გთხოვთ შეიყვანეთ დავალების სახელი...",
+        errorMessage: "Please input Task name...",
       });
       return;
     }
@@ -26,7 +26,7 @@ class ToDoTasks extends React.Component {
     const EmptyValue = this.state.tasks.some(() => name.trim().length === 0);
     if (EmptyValue) {
       this.setState({
-        errorMessage: "დავალების სახელში დაუშვებელი სიმბოლოა...",
+        errorMessage: "You can't create Taske with empty symbol",
       });
       return;
     }
@@ -34,7 +34,7 @@ class ToDoTasks extends React.Component {
     const DublicateValue = this.state.tasks.some((task) => task.name === name);
     if (DublicateValue) {
       this.setState({
-        errorMessage: "ასეთი დავალების სახელი უკვე არსებობს...",
+        errorMessage: "This Task Name exist",
       });
       return;
     }

@@ -10,7 +10,7 @@ export default function AddTask(props) {
     <div className="form">
       <input
         type="text"
-        placeholder="დავალების სახელი..."
+        placeholder="Task Name..."
         onChange={(e) => setNewTaks(e.target.value)}
         value={newTask}
       />
@@ -19,7 +19,7 @@ export default function AddTask(props) {
           props.AddTask(newTask, SecNewTask);
         }}
       >
-        დამატება
+        Add Task
       </button>
     </div>
   );

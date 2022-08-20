@@ -35,9 +35,9 @@ export default function Task(props) {
         </span>
       </div>
       <span className="buttonContainer">
-        <button onClick={() => props.removeTask(props.id)}>წაშლა</button>
+        <button onClick={() => props.removeTask(props.id)}>Remove</button>
         <button onClick={() => props.edit(props.name, props.id)}>
-          რედაქტირება
+        Edit
         </button>
       </span>
     </li>
