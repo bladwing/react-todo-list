@@ -19,12 +19,12 @@ export default function ToDoTasks() {
     }
     const EmptyValue = tasks.some(() => name.trim().length === 0);
     if (EmptyValue) {
-      setErrorMessage("დავალების სახელში დაუშვებელი სიმბოლოა...");
+      setErrorMessage("You can't create Taske with empty symbol...");
       return;
     }
     const DublicateValue = tasks.some((task) => task.name === name);
     if (DublicateValue) {
-      setErrorMessage("ასეთი დავალების სახელი უკვე არსებობს...");
+      setErrorMessage("This Task Name exist...");
       return;
     }
     let newToDo = { name };
