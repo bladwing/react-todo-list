@@ -33,13 +33,13 @@ class Task extends React.Component {
             className="nav"
             onClick={() => this.props.taskSwitch(this.props.id, "+")}
           >
-            <button>+</button>
+            <button className="inrease">+</button>
           </span>
           <span
             className="nav"
             onClick={() => this.props.taskSwitch(this.props.id, "-")}
           >
-            <button>-</button>
+            <button className="decrease">-</button>
           </span>
         </div>
         <span className="buttonContainer">

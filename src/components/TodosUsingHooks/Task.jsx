@@ -25,13 +25,13 @@ export default function Task(props) {
           className="nav"
           onClick={() => props.taskChangePosition(props.id, "+")}
         >
-          <button>+</button>
+          <button className="inrease">+</button>
         </span>
         <span
           className="nav"
           onClick={() => props.taskChangePosition(props.id, "-")}
         >
-          <button>-</button>
+          <button className="decrease">-</button>
         </span>
       </div>
       <span className="buttonContainer">

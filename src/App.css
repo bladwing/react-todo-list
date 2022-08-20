@@ -132,6 +132,14 @@ button {
   
 }
 
+.inrease,
+.decrease {
+  height: 25px;
+  width: 25px;
+  padding: 0;
+  margin-top: 4px;
+}
+
 button:before {
   content: "";
   background: linear-gradient(
