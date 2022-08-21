@@ -2,7 +2,7 @@ import React from "react";
 
 export default function RemoveTasks(props) {
   return (
-    <div>
+    <div className="deleteButtonsContainer">
       <button onClick={() => props.deleteAllTask()}>Remove all Tasks</button>
       <button onClick={() => props.removeAllCompletedTask()}>
         Remove all finished Tasks

@@ -43,12 +43,12 @@ class Task extends React.Component {
           </span>
         </div>
         <span className="buttonContainer">
-          <button onClick={() => this.props.removeTask(this.props.id)}>
+          <button onClick={() => this.props.removeTask(this.props.id)} className="remove">
             Remove
           </button>
           <button
             onClick={() => this.props.edit(this.props.name, this.props.id)}
-          >
+            className="edit">
             Edit
           </button>
         </span>

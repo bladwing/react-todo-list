@@ -35,8 +35,8 @@ export default function Task(props) {
         </span>
       </div>
       <span className="buttonContainer">
-        <button onClick={() => props.removeTask(props.id)}>Remove</button>
-        <button onClick={() => props.edit(props.name, props.id)}>
+        <button onClick={() => props.removeTask(props.id)} className="remove">Remove</button>
+        <button onClick={() => props.edit(props.name, props.id)} className="edit">
         Edit
         </button>
       </span>

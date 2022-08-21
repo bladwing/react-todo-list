@@ -8,7 +8,7 @@ class RemoveTasks extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="deleteButtonsContainer">
         <button onClick={() => this.props.deleteAllTask()}>
           Remove all Tasks
         </button>

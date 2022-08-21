@@ -49,7 +49,6 @@ img {
   padding: 10px;
   font-size: 18px;
   cursor: default;
-  
 }
 
 h1 {
@@ -98,7 +97,7 @@ input {
 li {
   display: flex;
   justify-content: space-between;
-  margin: 2%;
+  margin: 2% auto;
 }
 .taskSwitch {
   width: 10%;
@@ -129,7 +128,6 @@ button {
   cursor: pointer;
   color: white;
   font-weight: lighter;
-  
 }
 
 .inrease,
@@ -138,6 +136,15 @@ button {
   width: 25px;
   padding: 0;
   margin-top: 4px;
+}
+
+.remove,
+.edit {
+  margin-top: 1px;
+}
+
+.deleteButtonsContainer button {
+  margin-top: 1px;
 }
 
 button:before {

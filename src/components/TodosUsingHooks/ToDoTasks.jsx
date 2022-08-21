@@ -111,7 +111,7 @@ export default function ToDoTasks() {
   };
 
   return (
-    <div>
+    <div className="containerForTasks">
       <span className="onTheHeader">{"useState ==> Hook Components :)"}</span>
       <h1 className="header">
         <img src={Logo} alt="logoImg" />

@@ -10,7 +10,7 @@ import NotFound from "../pages/NotFound"
 
 export default function Menu() {
   return (
-    <div>
+
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -19,6 +19,6 @@ export default function Menu() {
           <Route path="/hooks" element={<Hooks />} />
         </Routes>
       </Router>
-    </div>
+ 
   );
 }
