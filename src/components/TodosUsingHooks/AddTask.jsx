@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 export default function AddTask(props) {
-  const [newTask, setNewTaks] = useState("");
+  const [newTask, setNewTask] = useState("");
   const SecNewTask = () => {
-    setNewTaks("");
+    setNewTask("");
   };
 
   return (
@@ -11,7 +11,7 @@ export default function AddTask(props) {
       <input
         type="text"
         placeholder="Task Name..."
-        onChange={(e) => setNewTaks(e.target.value)}
+        onChange={(e) => setNewTask(e.target.value)}
         value={newTask}
       />
       <button
