@@ -7,4 +7,4 @@
 
 
 
-### All my projects you can see [here](https://https://timponarenko.netlify.app/)
+### All my projects you can see [here](https://timponarenko.netlify.app/)
